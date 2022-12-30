@@ -6,7 +6,7 @@ class Product {
   final String description;
   final double price;
   final String imageUrl;
-  bool isFavorite; // is not final its changable
+  bool isFavorite;
 
   Product({
     @required this.id,
@@ -14,7 +14,6 @@ class Product {
     @required this.description,
     @required this.price,
     @required this.imageUrl,
-    this.isFavorite =
-        false, // its not required i set to false for initialization
+    this.isFavorite = false,
   });
 }

@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class ProductItem extends StatelessWidget {
-  //const ProductItem({Key key}) : super(key: key);
-  final String id; //properties of ProductItem
-  final String title; //properties of ProductItem
-  final String imageUrl; //properties of ProductItem
+  final String id;
+  final String title;
+  final String imageUrl;
 
   ProductItem(
     this.id,
@@ -14,29 +13,31 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridTile(
-      // we can also use Card widget,
-      // also ListTile widget for listview or side drawer, imageurl defined above
-      child: Image.network(
-        imageUrl,
-        fit: BoxFit.cover, // covered equaly sized
-      ),
-      footer: GridTileBar(
-        // create a footer description
-        backgroundColor: Colors.black54,
-        leading: IconButton(
-          icon: Icon(Icons.favorite),
-          onPressed: () {},
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(10),
+      child: GridTile(
+        child: Image.network(
+          imageUrl,
+          fit: BoxFit.cover,
         ),
-        title: Text(
-          title, //defined above
-          textAlign: TextAlign.center,
-        ),
-        trailing: IconButton(
-          icon: Icon(
-            Icons.shopping_cart,
+        footer: GridTileBar(
+          backgroundColor: Colors.black87,
+          leading: IconButton(
+            icon: Icon(Icons.favorite),
+            onPressed: () {},
+            color: Theme.of(context).accentColor,
           ),
-          onPressed: () {},
+          title: Text(
+            title,
+            textAlign: TextAlign.center,
+          ),
+          trailing: IconButton(
+            icon: Icon(
+              Icons.shopping_cart,
+            ),
+            onPressed: () {},
+            color: Theme.of(context).accentColor,
+          ),
         ),
       ),
     );
