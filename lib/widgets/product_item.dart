@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../screens/product_detail_screen.dart'; // for making a connection with ProductDetailScreen
-// its required to import product_detail_screen.dart for the widget availability (2)
+import '../screens/product_detail_screen.dart';
 
 class ProductItem extends StatelessWidget {
   final String id;
@@ -19,17 +18,13 @@ class ProductItem extends StatelessWidget {
       borderRadius: BorderRadius.circular(10),
       child: GridTile(
         child: GestureDetector(
-          // create a gesture detector on image that
-          // allows us onTap function (1)
           onTap: (() {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: ((context) =>
-                    ProducDetailScreen(title)), // make a connection with
-                //ProductDetailSecreen (2), when the title is defined above as well as
-                // the ProductDetailScreen (3)
-              ),
-            );
+            Navigator.of(context).pushNamed(
+              ProducDetailScreen.routeName,
+              arguments: id,
+            ); // instead //of push navigator we use pushNamed (1),
+            // connect ProductDetailScreen with a defined arguments (4), id argument defined above
+            // thats all what we need (not more, passing other properties will be added automatically) (5)
           }),
           child: Image.network(
             imageUrl,

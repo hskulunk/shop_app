@@ -1,19 +1,23 @@
 import 'package:flutter/material.dart';
 
 class ProducDetailScreen extends StatelessWidget {
-  // const ProducDetailScreen({Key key// }) : super(key: key);
+  // Note: instead of defining arguments (2)
+  // final String
+  //     title;
+  // final double price;
+  // ProducDetailScreen(this.title, this.price);
 
-  final String
-      title; // we create a property for making a connection with the Product
-  //item property == title (3)
-
-  ProducDetailScreen(this.title); // (3)
+  static const routeName =
+      'product-detail'; // create static const routeName (2)
 
   @override
   Widget build(BuildContext context) {
+    final productId =
+        ModalRoute.of(context).settings.arguments as String; // is the id (6)
+    //..
     return Scaffold(
       appBar: AppBar(
-        title: Text(title), //defined above
+        title: Text('title'),
       ),
     );
   }
