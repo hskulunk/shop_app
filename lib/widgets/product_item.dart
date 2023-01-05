@@ -22,9 +22,7 @@ class ProductItem extends StatelessWidget {
             Navigator.of(context).pushNamed(
               ProducDetailScreen.routeName,
               arguments: id,
-            ); // instead //of push navigator we use pushNamed (1),
-            // connect ProductDetailScreen with a defined arguments (4), id argument defined above
-            // thats all what we need (not more, passing other properties will be added automatically) (5)
+            );
           }),
           child: Image.network(
             imageUrl,
